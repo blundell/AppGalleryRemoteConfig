@@ -43,19 +43,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        updateCountryUserAttribute()
-        updateBasedOnRemoteConfig()
+        updateUIBasedOnUserAttributes()
+        updateUIBasedOnRemoteConfig()
     }
 
-    private fun updateCountryUserAttribute() {
+    private fun updateUIBasedOnUserAttributes() {
         val editTextOne: EditText = findViewById(R.id.edit_text_one)
-        val currentCountry = editTextOne.text.toString()
-        Log.d(TAG, "Country sel: $currentCountry")
-        // This sets the custom UserAttribute 'country' we created in the console
-        analytics.setUserProfile("country", currentCountry)
+
+        /**
+         * getUserProfiles param: Indicates whether to obtain predefined user attributes.
+         * true: Obtains predefined user attributes.
+         * false: Obtains custom user attributes.
+         */
+        val currentCountry = analytics.getUserProfiles(false)["country"] ?: "Spain"
+        Log.d(TAG, "Country load: $currentCountry")
+        editTextOne.setText(currentCountry)
     }
 
-    private fun updateBasedOnRemoteConfig() {
+    private fun updateUIBasedOnRemoteConfig() {
         /**
          * You could use this value to change Activity navigation paths, to swap fragments etc
          * Here, we just change the text.
@@ -91,7 +96,15 @@ class MainActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 config.apply(it)
                 Log.d(TAG, "Applied")
-                updateBasedOnRemoteConfig()
+                updateUIBasedOnRemoteConfig()
             }
+    }
+
+    private fun updateCountryUserAttribute() {
+        val editTextOne: EditText = findViewById(R.id.edit_text_one)
+        val currentCountry = editTextOne.text.toString()
+        Log.d(TAG, "Country sel: $currentCountry")
+        // This sets the custom UserAttribute 'country' we created in the console
+        analytics.setUserProfile("country", currentCountry)
     }
 }
