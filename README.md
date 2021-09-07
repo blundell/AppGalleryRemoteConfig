@@ -19,7 +19,7 @@ We demonstrate the user of Remote Configuration, Conditions, Analytics, User Att
 
 As explained in the blog here:
 
-https://blog.blundellapps.co.uk/remote-config-using-appgallery-connect/
+https://blog.blundellapps.co.uk/remote-configuration-using-appgallery-connect/
 
 Adding the AppGallery Connect SDK:
 
