@@ -23,7 +23,7 @@ private const val TAG = "TUT"
  * This UserAttribute is the country you have determined the user is from.
  * The UserAttribute has to be setup in AppGallery Connect > Analytics > Management before hand.
  *
- * There is a button where you can refresh the remote config being used,
+ * There is a button where you can refresh the remote configuration being used,
  * in a 'real' app the cycle between changing attributes & refreshing configs
  * to see changes would not be such a tight loop, but for demo purposes this does the job.
  *
