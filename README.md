@@ -15,7 +15,7 @@ This condition says, when the user is in the UK the screen changes background co
 
 We demonstrate the user of Remote Configuration, Conditions, Analytics, User Attributes and Config Refreshing.
 
-![](app_gallery_remote_configuration.gif)
+![](appgallery_remote_configuration.gif)
 
 As explained in the blog here:
 
